@@ -20,7 +20,7 @@ const FooterColumn = ({title, links}: ColumnProps) => (
 function Footer() {
 	return (
 		<footer className="flexStart footer">
-			<div className="flex flex-col gap-12 w-full">
+			<div className="flex xl:mt-8 xl:px-2 flex-col gap-12 w-full">
 				<div className="flex flex-start flex-col">
 					<Image 
 					src="/logo-pink.png"
@@ -46,9 +46,9 @@ function Footer() {
 					<FooterColumn title={footerLinks[6].title} links={footerLinks[6].links}/>
 				</div>
 			</div>	
-			<div className='flexBetween footer_copyright'>
-				<p>@ 2023 Pebbble. All rights reserved.</p>
-				<p className="text-gray">
+			<div className='flexBetween mb-2 xl:px-2 pt-12 border-t border-gray-50 footer_copyright'>
+				<p className="text-gray-70">@ 2023 Pebbble. All rights reserved.</p>
+				<p className="text-gray-70">
 					<span className="text-black font-semibold">10,213</span> shots pebbbled
 				</p>
 			</div>

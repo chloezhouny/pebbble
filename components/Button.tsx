@@ -17,8 +17,10 @@ function Button({title, type, leftIcon, rightIcon, bgColor, textColor, isSubmitt
 		disabled={isSubmitting}
 		className={`flexCenter gap-3 px-4 py-3
 		${textColor || 'text-white'}
-		${isSubmitting ? 'bg-white/50' : (bgColor || 'bg-primary-pink')}
-		rounded-xl text-sm font-medium max-md:w-full
+		${bgColor || 'bg-primary-pink'}
+		${isSubmitting && 'bg-opacity-25'}
+		hover:bg-opacity-50
+		rounded-lg text-sm font-semibold max-md:w-full
 		`}
 		onClick={handleClick}		
 		>
