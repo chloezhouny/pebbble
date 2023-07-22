@@ -9,7 +9,7 @@ type Props = {
     user: UserProfile;
 }
 const ProfilePage = ({ user }: Props) => (
-    <section className='flexCenter flex-col max-w-10xl w-full mx-auto xl:px-16 px-8 lg:pt-2 pt-8 pb-14'>
+    <section className='flexCenter flex-col max-w-10xl w-full mx-auto lg:px-20 px-8 pt-8 pb-14'>
         <section className="flexStart max-md:flex-col flex-nowrap gap-10 md:gap-8 w-full">
         {user?.projects?.edges?.length > 0 ? (
                 <Image
@@ -32,12 +32,7 @@ const ProfilePage = ({ user }: Props) => (
             <div className='flex items-start flex-col w-full order-2 md:order-1'>
                 <Image src={user?.avatarUrl} width={85} height={85} className="rounded-full" alt="user image" />
                 <p className="lg:text-3xl text-lg font-bold lg:mt-6 mt-3">{user?.name}</p>
-                <p className="lg:text-5xl text-3xl font-extrabold lg:mt-3 mt-1 max-w-md">Available for your projects.</p> 
-                <p className="lg:text-5xl text-3xl font-extrabold lg:mt-3 mt-1 max-w-md" >Send info at - >></p>
-      
-                    
-         
-                
+                <p className="lg:text-5xl text-3xl font-extrabold lg:mt-3 mt-1 max-w-md">Available for your projects 👋</p>  
                 <div className="flex lg:mt-8 mt-6 gap-5 w-full flex-wrap">
                      <Link href={`mailto:${user?.email}`}>
                         <Button 
