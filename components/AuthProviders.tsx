@@ -23,8 +23,7 @@ const AuthProviders = () => {
 		}
 		fetchProviders();
 	}, [])
-
-	if (providers) {
+	if (!providers) return null;
 		return (
 		<div>
 			{Object.values(providers).map((provider: Provider, i) => (
@@ -36,7 +35,6 @@ const AuthProviders = () => {
 			))}
 		</div>
 	)
-	}
 	
 }
 
