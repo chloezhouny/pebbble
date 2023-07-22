@@ -32,7 +32,6 @@ const AuthProviders = () => {
 				key={i} 
 				title="Sign up"
 				bgColor='bg-black'
-				
 				handleClick={() => signIn(provider?.id)} />
 			))}
 		</div>

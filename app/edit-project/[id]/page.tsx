@@ -16,7 +16,6 @@ const EditProject = async ({params: {id}}: {params: {id: string}}) => {
 	}
 	return (
 		<Modal>
-			<h3 className="modal-head-text">What have you been working on?</h3>
 			<ProjectForm type="edit" session={session} project={result?.project}/>
 		</Modal>
 	)

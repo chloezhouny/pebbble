@@ -1,6 +1,6 @@
 import {ProjectForm } from '@/common.types'
 import {GraphQLClient} from 'graphql-request';
-import {getUserQuery, createUserMutation, createProjectMutation, projectsQuery, getProjectByIdQuery, getProjectsOfUserQuery, deleteProjectMutation, updateProjectMutation } from '@/grafql';
+import {getUserQuery, createUserMutation, createProjectMutation, projectsQuery, projectsAllQuery, projectsAllQuery1, getProjectByIdQuery, getProjectsOfUserQuery, deleteProjectMutation, updateProjectMutation } from '@/grafql';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const apiUrl = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || '' : 'http://127.0.0.1:4000/graphql'
@@ -70,10 +70,22 @@ export const createNewProject = async (form: ProjectForm, creatorId: string, tok
 	}
 }
 
-export const fetchAllProjects = async (category?:string | null, endcursor?:string | null) => {
+export const fetchAllProjects = async (category?:string, endcursor?:string) => {
 	client.setHeader('x-api-key', apiKey);
-	return makeGraphQLRequest(projectsQuery, {category, endcursor})
+	if (category === 'Discover'){
+	  return makeGraphQLRequest(projectsAllQuery, {endcursor})
+	}
+	return makeGraphQLRequest(projectsQuery, {category, endcursor})	
+
 }
+
+// export const fetchAllProjects = async (category?:string) => {
+// 	client.setHeader('x-api-key', apiKey);
+// 	if (category === 'Discover'){
+// 	  return makeGraphQLRequest(projectsAllQuery)
+// 	}
+// 	return makeGraphQLRequest(projectsQuery, {category})	
+// }
 
 export const getProjectDetails = (id: string) => {
 	client.setHeader('x-api-key', apiKey);
@@ -97,7 +109,6 @@ export const updateProject = async (form: ProjectForm, projectId: string, token:
     const base64Regex = /^data:image\/[a-z]+;base64,/;
     return base64Regex.test(value);
   }
-
   let updatedForm = {...form}
   const isUploadingNewImage = isBase64DataURL(form.image)
   if (isUploadingNewImage) {
@@ -113,7 +124,6 @@ export const updateProject = async (form: ProjectForm, projectId: string, token:
   	id: projectId,
   	input: updatedForm,
   }
-
 	client.setHeader('x-api-key', apiKey);
 	client.setHeader('Authorization', `Bearer ${token}`)
 	return makeGraphQLRequest(updateProjectMutation, variables)

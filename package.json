@@ -16,7 +16,9 @@
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "carousel": "^0.0.3",
     "cloudinary": "^1.37.1",
+    "encoding": "^0.1.13",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
     "jsonwebtoken": "^9.0.0",
@@ -26,6 +28,8 @@
     "ra-data-graphql": "^4.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-grid": "^4.0.4",
+    "react-icons": "^4.10.1",
     "supports-color": "^9.3.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"

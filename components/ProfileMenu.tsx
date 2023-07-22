@@ -7,6 +7,7 @@ import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { SessionInterface } from "@/common.types";
+import Button from './Button'
 
 const ProfileMenu = ({ session }: { session: SessionInterface }) => {
     const [openModal, setOpenModal] = useState(false);
@@ -18,8 +19,8 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
                     {session?.user?.image && (
                         <Image
                             src={session.user.image}
-                            width={40}
-                            height={40}
+                            width={34}
+                            height={34}
                             className="rounded-full"
                             alt="user profile image"
                         />
@@ -54,20 +55,29 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
                                 </Link>
                             )}
                             <p className="font-semibold">{session?.user?.name}</p>
-                            <Link href="/create-project">Share Work</Link>
+                            <Link href="/create-project" className="xl:hidden">
+                                <Button 
+                                    title="Share Work" 
+                                    bgColor="bg-light-white-300" 
+                                    textColor="text-black" 
+                                    border="border-2"
+                                    borderColor='border-black'
+                                    hover="hover:bg-light-white-500"
+                                />                
+                            </Link>
                         </div>
 
-                        <div className="flex flex-col gap-3 pt-10 items-start w-full">
+                        <div className="flex flex-col gap-3 pt-12 items-start w-full">
                             <Menu.Item>
-                                <Link href={`/profile/${session?.user?.id}`} className="text-sm">Work Preferences</Link>
+                                <Link href={`/profile/${session?.user?.id}`} className="text-base">Work Preferences</Link>
                             </Menu.Item>
                             <Menu.Item>
-                                <Link href={`/profile/${session?.user?.id}`} className="text-sm">Settings</Link>
+                                <Link href={`/profile/${session?.user?.id}`} className="text-base">Settings</Link>
                             </Menu.Item>
                         </div>
                         <div className="w-full flexStart border-t border-nav-border mt-5 pt-5">
                             <Menu.Item>
-                                <button type="button" className="text-sm" onClick={() => signOut()}> 
+                                <button type="button" className="text-base" onClick={() => signOut()}> 
                                     Sign out
                                 </button>
                             </Menu.Item>

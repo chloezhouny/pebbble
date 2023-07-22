@@ -72,7 +72,7 @@ const ProjectForm = ({type, session, project}: Props) => {
 	return (
 		<form 
 		onSubmit = {handleFormSubmit}
-		className="flexStart form"
+		className='flexStart form'
 		>
 		<FormField 
 			title="Title"
@@ -80,10 +80,31 @@ const ProjectForm = ({type, session, project}: Props) => {
 			placeholder="Give me a name"
 			setState={(value) => handleStateChange('title', value)}
 			/>
-			<div className="flexStart form_image-container">
+			<div className="flexCenter form_image-container">		
 				<label htmlFor="image"
-				className="flexCenter form_image-label">
-					{!form.image && 'Choose a image for your project'}
+				className='flexCenter flex-col gap-4 form_image-label'>
+					<Image src='/picture-placeholder.png'
+						className="flexCenter pt-5"
+						alt="image placeholder"
+						width={80}
+						height={100}
+					/>
+					{!form.image && (
+					<>
+						<p className="text-base">Drag and Drop an image, or <span className="text-primary-pink">Browse</span></p>
+						<p className="text-sm text-gray-70">Minimum 1600px width recommended. Max 10MB each (20MB for videos)</p>
+						<div className="flex justify-between lg:gap-28 flex-col lg:flex-row text-sm text-gray-70 mt-8">
+							<ul className="list-disc text-left leading-7">
+								<li>High resolution images (png, jpg, gif)</li>
+								<li>Animated gifs</li>
+							</ul>
+							<ul className="list-disc text-left leading-7">
+								<li>Videos (mp4)</li>
+								<li>Only upload media you own the rights to</li>
+							</ul>
+						</div>
+					</>
+					)}
 				</label>
 				<input id="image" type="file" accept="image/*"
 				required={type === 'create' ? true : false}
@@ -93,7 +114,7 @@ const ProjectForm = ({type, session, project}: Props) => {
 				{form.image && (
 					<Image 
 					src={form?.image}
-					className="sm:p-10 object-contain z-20"
+					className="p-5 object-contain z-20"
 					alt="Project image"
 					fill
 					/>
@@ -106,6 +127,7 @@ const ProjectForm = ({type, session, project}: Props) => {
 			state={form.description}
 			placeholder="Write what went into this design or add any details you'd like to mention."
 			setState={(value) => handleStateChange('description', value)}
+			marginTop='mt-20'
 			/>
 			<FormField 
 			type="url"
@@ -113,6 +135,7 @@ const ProjectForm = ({type, session, project}: Props) => {
 			state={form.liveSiteUrl}
 			placeholder="Website URL"
 			setState={(value) => handleStateChange('liveSiteUrl', value)}
+			marginTop='mt-16'
 			/>
 			<FormField 
 			type="url"
@@ -120,17 +143,18 @@ const ProjectForm = ({type, session, project}: Props) => {
 			state={form.githubUrl}
 			placeholder="Github URL"
 			setState={(value) => handleStateChange('githubUrl', value)}
+			marginTop='mt-2'
 			/>
 
 			<CustomMenu 
 			title='Tag'
 			state={form.category}
 			filters={categoryFilters}
-			setState={(value) => handleStateChange('category', value)}
+			setState={(value) => handleStateChange('category', value)}		
 			/>
 			
-			<div className="flexStart w-full">
-				<Button title={isSubmitting ? `${type === "create" ? "Publishing" : "Updating"}` : `${type === "create" ? "Publish now" : "Update"}`} type="submit" isSubmitting={isSubmitting} />
+			<div className="flexEnd w-full mt-16 md:w-4/5">
+				<Button title={isSubmitting ? `${type === "create" ? "Publishing" : "Updating"}` : `${type === "create" ? "Publish now" : "Update"}`} type="submit" width='max-md:w-full' isSubmitting={isSubmitting} />
 			</div>
 		</form>
 	)

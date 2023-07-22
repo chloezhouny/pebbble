@@ -54,9 +54,39 @@ export const createUserMutation = `
 	}
 `;
 
+// export const projectsQuery = `
+//   query getProjects($category: String, $endcursor: String) {
+//     projectSearch(first: 3, after: $endcursor, filter: {category: {eq: $category}}) {
+//       pageInfo {
+//         hasNextPage
+//         hasPreviousPage
+//         startCursor
+//         endCursor
+//       }
+//       edges {
+//         node {
+//           title
+//           githubUrl
+//           description
+//           liveSiteUrl
+//           id
+//           image
+//           category
+//           createdBy {
+//             id
+//             email
+//             name
+//             avatarUrl
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
+
 export const projectsQuery = `
   query getProjects($category: String, $endcursor: String) {
-    projectSearch(first: 8, after: $endcursor, filter: {category: {eq: $category}}) {
+    projectSearch(first: 100, after: $endcursor, filter: {category: {eq: $category}}) {
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -83,6 +113,98 @@ export const projectsQuery = `
     }
   }
 `;
+
+// export const projectsAllQuery = `
+//   query getAllProjects($endcursor: String) {
+//     projectSearch(first: 3, after: $endcursor) {
+//       pageInfo {
+//         hasNextPage
+//         hasPreviousPage
+//         startCursor
+//         endCursor
+//       }
+//       edges {
+//         node {
+//           title
+//           githubUrl
+//           description
+//           liveSiteUrl
+//           id
+//           image
+//           category
+//           createdBy {
+//             id
+//             email
+//             name
+//             avatarUrl
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
+
+export const projectsAllQuery = `
+  query getAllProjects($endcursor: String) {
+    projectSearch(first: 100, after: $endcursor) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      edges {
+        node {
+          title
+          githubUrl
+          description
+          liveSiteUrl
+          id
+          image
+          category
+          createdBy {
+            id
+            email
+            name
+            avatarUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+
+export const projectsAllQuery1 = `
+  query getAllProjects($count: Int) {
+    projectSearch(first: $count) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      edges {
+        node {
+          title
+          githubUrl
+          description
+          liveSiteUrl
+          id
+          image
+          category
+          createdBy {
+            id
+            email
+            name
+            avatarUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
 
 export const getProjectByIdQuery = `
   query GetProjectById($id: ID!) {

@@ -8,6 +8,7 @@ import { getCurrentUser} from '@/lib/session'
 import {signOut} from 'next-auth/react'
 
 import ProfileMenu from './ProfileMenu'
+import Button from './Button'
 
 const Navbar = async () => {
 	const session = await getCurrentUser();
@@ -22,9 +23,9 @@ const Navbar = async () => {
 					alt="Pebbble"
 					/>
 				</Link>	
-				<ul className="xl:flex hidden text-small gap-7">
+				<ul className="xl:flex hidden text-sm font-medium gap-7">
 					{NavLinks.map((link) => (
-						<Link href={link.href} key={link.key}>
+						<Link href={link.href} className="hover:text-gray" key={link.key}>
 							{link.text}
 						</Link>
 					))}
@@ -33,7 +34,13 @@ const Navbar = async () => {
 			<div className="flexCenter gap-4">
 				{session?.user ? (
 				<>
-					<Link href="/create-project">Share Work</Link>
+					<Link href="/create-project" className='hidden xl:inline-block'>
+					 <Button 
+                        title="Share Work"  
+                        bgColor='bg-black'
+                        py="py-4"
+                        />
+					</Link>
 					<ProfileMenu session={session}/>
 				
 			    </>

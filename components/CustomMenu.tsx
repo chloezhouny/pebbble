@@ -10,14 +10,11 @@ type Props = {
 }
 const CustomMenu = ({title, state, filters, setState }: Props) => {
 	return (
-		<div className="flexStart flex-col w-full gap-7 relative">
-	{/*	<label htmlFor={title} className="w-full text-gray-100">
-			{title}
-		</label>*/}	
+		<div className="flexEnd w-full md:w-4/5 mt-16 gap-7 relative">
 		<Menu as="div" className="self-start relative">
 			<div>
 				<Menu.Button className="flexCenter custom_menu-btn">
-					{state || 'Add a tag'}
+					{state || 'Add tag'}
 					<Image src="/arrow-down.svg" 
 					width={10}
 					height={5}

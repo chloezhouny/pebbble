@@ -1,20 +1,39 @@
+'use client'
+import { useRef, useState, useEffect } from "react";
+
+
 type Props = {
 	type?: string;
 	title: string;
 	state: string;
 	placeholder: string;
 	isTextArea?: boolean;
+	marginTop?: string;
 	setState: (value: string) => void;
 }
 
-function FormField({type, title, state, placeholder, isTextArea, setState} : Props) {
+function FormField({type, title, state, placeholder, isTextArea, setState, marginTop} : Props) {
+  	const textAreaRef = useRef<HTMLTextAreaElement>(null);
+	  if (isTextArea) {
+
+	  	 useEffect(() => {
+    		if (textAreaRef.current) {
+      			textAreaRef.current.style.height = "0px";
+      		const scrollHeight = textAreaRef.current.scrollHeight;
+      		textAreaRef.current.style.height = scrollHeight + "px";
+    	}
+  	   }, [textAreaRef, state]);
+	  }
+	 
 	return (
-		<div className="flexStart flex-col w-full gap-4">
+		<div className={`flexCenter flex-col w-full md:w-4/5 ${marginTop}`}>
 			{isTextArea? (
 				<textarea 
 				placeholder={placeholder}
 				value={state}
 				required
+				ref={textAreaRef}
+				rows={1}
 				className='form_field-input'
 				onChange={(e) => setState(e.target.value)}
 				/>

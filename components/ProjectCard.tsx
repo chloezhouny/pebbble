@@ -28,8 +28,8 @@ function ProjectCard({id, image, title, name, avatarUrl, userId}: Props) {
 			<Link href={`/project/${id}`} className="flex-center group relative w-full h-full">
 				<Image 
 				src={image}
-				width={414}
-				height={314}
+				width={344}
+				height={258}
 				className="w-full h-full object-contain rounded-lg"
 				alt="Project image"
 				/>

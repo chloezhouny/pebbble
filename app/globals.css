@@ -27,7 +27,7 @@ body {
 }
 
 .flexEnd {
-  @apply flex items-center justify-start;
+  @apply flex items-center justify-end;
 }
 
 .text-small {
@@ -49,6 +49,18 @@ body {
   border-radius: 12px;
 }
 
+
+.categories::-webkit-scrollbar {
+  width: 4px;
+  height: 3px;
+}
+
+.categories::-webkit-scrollbar-thumb {
+  background: #f3f3f4;
+  border-radius: 12px;
+}
+
+
 .modal-head-text {
   @apply md:text-3xl text-2xl font-bold text-center max-w-5xl w-full;
 }
@@ -68,7 +80,7 @@ body {
 
 /* Home */
 .projects-grid {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 mt-10 w-full;
+  @apply grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 mt-10 w-full;
 }
 
 /* Project Actions */
@@ -95,7 +107,7 @@ body {
 
 /* Custom Menu */
 .custom_menu-btn {
-  @apply gap-4 w-full rounded-md bg-light-white-100 p-4 text-base outline-none capitalize;
+  @apply gap-4 w-full rounded-md bg-light-white-300 hover:bg-light-white-500 py-3 px-4 text-base outline-none capitalize;
 }
 
 .custom_menu-items {
@@ -139,12 +151,12 @@ body {
 
 /* Navbar */
 .navbar {
-  @apply py-8 px-8 border-nav-border gap-4;
+  @apply py-7 px-8 border-nav-border gap-4;
 }
 
 /* Profile Menu */
 .profile_menu-items {
-  @apply flex-col absolute right-0 mt-3 p-9 sm:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu;
+  @apply flex-col absolute right-0 mt-3 p-9 xs:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu;
 }
 
 /* Profile Card */
@@ -154,15 +166,15 @@ body {
 
 /* Project Form */
 .form {
-  @apply flex-col w-full lg:pt-24 pt-12 gap-10 text-lg max-w-5xl mx-auto;
+  @apply flex-col w-full pt-12 lg:pt-24 gap-2 text-lg max-w-5xl mx-auto;
 }
 
 .form_image-container {
-  @apply w-full lg:min-h-[400px] min-h-[200px] relative;
+  @apply w-full lg:min-h-[540px] min-h-[420px] relative;
 }
 
 .form_image-label {
-  @apply z-10 text-center w-full h-full p-20 text-gray-100 border-2 border-gray-50 border-dashed;
+  @apply z-10 text-center w-full h-full p-20 text-gray-100 text-base border-2 border-b-0 border-light-white-400 border-dashed rounded-xl;
 }
 
 .form_image-input {
@@ -171,5 +183,5 @@ body {
 
 /* Profile Projects */
 .profile_projects {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5;
+  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-8 pt-12 border-t border-gray-50 ;
 }
