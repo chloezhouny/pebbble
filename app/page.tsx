@@ -43,7 +43,7 @@ const Home = async ({ searchParams: {category, endcursor}}: Props) => {
 		return (
 			<section className="flexStart flex-col paddings">
 					<Categories />
-				<p className="no-result-text text-center">No projects found, go create some first</p>
+				<p className="no-result-text text-center">No projects found. Show off your best work first.</p>
 			</section>
 		)
 	}
