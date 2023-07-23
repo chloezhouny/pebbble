@@ -4,7 +4,9 @@ Discover top design portfolios from around the world and showcase your own creat
 
 [Link to Deyployment](https://pebbble.vercel.app/)
 
-<img src="/demo.gif" width=600 alt="demo" />
+<p align='center'>
+<img src="./public/demo-2.gif" width=600 alt="demo" />
+</p>
 
 ## Technologies Used
 * HTML
