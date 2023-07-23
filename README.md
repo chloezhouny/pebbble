@@ -1,5 +1,6 @@
 # pebbble
-A Full Stack Dribbble Clone using React, Next.js 13, Typescript and Tailwind CSS.
+A Full Stack Dribbble Clone using React, Next.js 13, Typescript, and Tailwind CSS.
+<br>
 Discover top design portfolios from around the world and showcase your own creative work! 
 
 [Link to Deyployment](https://pebbble.vercel.app/)
