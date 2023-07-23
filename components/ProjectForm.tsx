@@ -92,14 +92,14 @@ const ProjectForm = ({type, session, project}: Props) => {
 					{!form.image && (
 					<>
 						<p className="text-base">Drag and Drop an image, or <span className="text-primary-pink">Browse</span></p>
-						<p className="text-sm text-gray-70">Minimum 1600px width recommended. Max 10MB each (20MB for videos)</p>
+						<p className="text-sm text-gray-70">Minimum 1600px width recommended. Max 2MB each (no videos)</p>
 						<div className="flex justify-between lg:gap-28 flex-col lg:flex-row text-sm text-gray-70 mt-8">
 							<ul className="list-disc text-left leading-7">
-								<li>High resolution images (png, jpg, gif)</li>
+								<li>High resolution images (png, jpg)</li>
 								<li>Animated gifs</li>
 							</ul>
 							<ul className="list-disc text-left leading-7">
-								<li>Videos (mp4)</li>
+								<li>No Videos (mp4)</li>
 								<li>Only upload media you own the rights to</li>
 							</ul>
 						</div>

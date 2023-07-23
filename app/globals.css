@@ -94,7 +94,7 @@ body {
 
 /* Related Project Card */
 .related_project-card {
-  @apply flex-col rounded-2xl min-w-[210px] min-h-[197px];
+  @apply flex-col rounded-2xl min-w-[210px] min-h-[197px] mb-3;
 }
 
 .related_project-card_title {
@@ -102,8 +102,9 @@ body {
 }
 
 .related_projects-grid {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5;
+  @apply grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 mt-5;
 }
+
 
 /* Custom Menu */
 .custom_menu-btn {
@@ -183,5 +184,6 @@ body {
 
 /* Profile Projects */
 .profile_projects {
-  @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-8 pt-12 border-t border-gray-50 ;
+  @apply grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-8 pt-12 border-t border-gray-50 ;
 }
+

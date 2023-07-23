@@ -1,9 +1,10 @@
 import { ProjectInterface, UserProfile } from '@/common.types'
 import Image from 'next/image'
-
 import Link from 'next/link'
+
 import Button from "./Button";
 import ProjectCard from './ProjectCard';
+
 
 type Props = {
     user: UserProfile;
@@ -63,18 +64,17 @@ const ProfilePage = ({ user }: Props) => (
                <span className="text-gray-60 ml-2">{user?.projects?.edges?.length}</span>
            </p>
            
-           <div className="profile_projects ">
+           <div className="profile_projects w-full">
                 {user?.projects?.edges?.reverse().map(
                     ({ node }: { node: ProjectInterface }) => (
-                        <ProjectCard
-                            key={`${node?.id}`}
-                            id={node?.id}
-                            image={node?.image}
-                            title={node?.title}
-                            name={user.name}
-                            avatarUrl={user.avatarUrl}
-                            userId={user.id}
-                        />
+                        <div className="flexCenter profile_project-card drop-shadow-card">
+                            <Link href={`/project/${node?.id}`} className="flexCenter group relative w-full h-full">
+                                <Image src={node?.image} width={414} height={314} className="w-full h-full object-cover rounded-lg" alt="project image" />
+                                <div className="hidden group-hover:flex related_project-card_title">
+                                    <p className="w-full">{node?.title}</p>
+                                </div>
+                            </Link>
+                        </div>
                     )
                 )}
             </div>

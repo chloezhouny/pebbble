@@ -1,8 +1,11 @@
+import Image from 'next/image';
+
 import {ProjectInterface} from '@/common.types'
 import {fetchAllProjects} from '@/lib/actions';
 import ProjectCard from '@/components/ProjectCard';
 import Categories from '@/components/Categories';
 import LoadMore from '@/components/LoadMore';
+
 
 type SearchParams = {
    category?: string | null;
@@ -43,7 +46,12 @@ const Home = async ({ searchParams: {category, endcursor}}: Props) => {
 		return (
 			<section className="flexStart flex-col paddings">
 					<Categories />
-				<p className="no-result-text text-center">No projects found. Show off your best work first.</p>
+				<div className="no-result-text text-center flex-col flexCenter">
+					<Image className='mt-14' src={'/no-result.jpeg'} width={250} height={220} alt='no-result'/>
+					<p className="mt-2">No projects :(</p>
+				   <p className="text-gray-70 text-sm">{`It looks like no one has uploaded any ${category} shots yet. Create your own first!`}</p>
+			    </div>
+			  
 			</section>
 		)
 	}
